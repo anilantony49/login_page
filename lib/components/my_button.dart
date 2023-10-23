@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/homepage/homepage.dart';
 
 class MyButton extends StatelessWidget {
- final  Function()?onTap;
-  const MyButton({super.key,required this.onTap});
+  final Function()? onTap;
+  const MyButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(25),
-        margin: const EdgeInsets.symmetric(horizontal: 25),
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(8),
-          
+    return Container(
+      // decoration: BoxDecoration(borderRadius: BorderRadius.circular(1000)),
+      height: 50,
+      // width: 500,
+      margin: const EdgeInsets.symmetric(horizontal:50),
+      child: ElevatedButton(
+        onPressed: () {
+         Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.black),
+              // minimumSize: MaterialStateProperty.all(Size(double.infinity, 20)), // Set the desired height
+    
         ),
         child: const Center(
-          child: Text('Sign In',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16
-          ),),
+          child: Text(
+            'LOGIN',
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16),
+          ),
         ),
       ),
     );

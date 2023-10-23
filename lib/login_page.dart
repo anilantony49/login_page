@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:login_page/components/my_button.dart';
 import 'package:login_page/components/my_textfield.dart';
 import 'package:login_page/components/square_tile.dart';
+import 'package:login_page/homepage/homepage.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -11,8 +13,7 @@ class LoginPage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  // Sign user in method
-  void signUserIn() {}
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +43,25 @@ class LoginPage extends StatelessWidget {
                   height: 25,
                 ),
                 MyTextField(
+                  
+                  preffixIcon: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.person),
+                  ),
                   controller: usernameController,
                   obscureText: false,
-                  hintext: 'Username',
+                  hintext: 'Email',
+                  keybordType: TextInputType.name,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 MyTextField(
+                  preffixIcon: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.lock),
+                  ),
+                  suffixIcon: const Icon(Icons.visibility),
                   controller: passwordController,
                   hintext: 'Password',
                   obscureText: true,
@@ -73,8 +85,16 @@ class LoginPage extends StatelessWidget {
                   height: 25,
                 ),
                 MyButton(
-                  onTap: signUserIn,
+                  onTap: signUserIn(),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                     Text("Don't have an account ?"),
+                Text(' Sign Up',style: TextStyle(color: Colors.blue,fontWeight:FontWeight.bold,),),
+                  ],
+                ),
+               
                 const SizedBox(
                   height: 50,
                 ),
@@ -101,19 +121,19 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                 ),
-            
+
                 const SizedBox(
                   height: 40,
                 ),
-            
+
                 // google + apple sign in button
-            
+
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // google button
                     SquareTile(imagePath: 'assets/images/google.png'),
-            
+
                     SizedBox(
                       width: 25,
                     ),
@@ -124,7 +144,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-            
+
                 // not a member? register now
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -151,3 +171,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+ // Sign user in method
+   signUserIn() {
+  }
