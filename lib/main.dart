@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/login_page.dart';
+import 'package:login_page/loginpage/splash_screen.dart';
 
-void main() {
+const saveKey = 'sharedprefernce value';
+
+
+void main() async{
   runApp(const MyApp());
 }
 
@@ -15,10 +18,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // useMaterial3: true,
       ),
-      home:  LoginPage()
+      home:  const SplashScreen()
     );
   }
 }
